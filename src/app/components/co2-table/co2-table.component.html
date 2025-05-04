@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <h3 class="mb-3">CO₂-Emissionen nach Land & Unternehmen</h3>
+  
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input type="text" class="form-control" [(ngModel)]="filterText" placeholder="Nach Unternehmen oder Land filtern">
+      </div>
+    </div>
+  
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-light">
+        <tr>
+          <th (click)="sortBy('country')" class="cursor-pointer">🌍 Land</th>
+          <th (click)="sortBy('company')" class="cursor-pointer">🏢 Unternehmen</th>
+          <th (click)="sortBy('co2')" class="cursor-pointer">🌫️ CO₂-Ausstoß (in Mio. Tonnen)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of filteredAndSortedData()">
+          <td>{{ row.country }}</td>
+          <td>{{ row.company }}</td>
+          <td>{{ row.co2 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
